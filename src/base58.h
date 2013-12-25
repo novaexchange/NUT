@@ -272,8 +272,8 @@ class CBitcoinAddress : public CBase58Data
 public:
     enum
     {
-        PUBKEY_ADDRESS = 48, // Nutcoin addresses start with L
-        SCRIPT_ADDRESS = 5,
+        PUBKEY_ADDRESS = 53, // Nutcoin addresses start with N
+        SCRIPT_ADDRESS = 5, // https://en.bitcoin.it/wiki/List_of_address_prefixes
         PUBKEY_ADDRESS_TEST = 111,
         SCRIPT_ADDRESS_TEST = 196,
     };
