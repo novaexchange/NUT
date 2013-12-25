@@ -412,7 +412,7 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
             "getreceivedbyaddress <nutcoinaddress> [minconf=1]\n"
             "Returns the total amount received by <nutcoinaddress> in transactions with at least [minconf] confirmations.");
 
-    // Bitcoin address
+    // Nutcoin address
     CBitcoinAddress address = CBitcoinAddress(params[0].get_str());
     CScript scriptPubKey;
     if (!address.IsValid())

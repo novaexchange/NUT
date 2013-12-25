@@ -1425,7 +1425,7 @@ string CWallet::SendMoneyToDestination(const CTxDestination& address, int64 nVal
     if (nValue + nTransactionFee > GetBalance())
         return _("Insufficient funds");
 
-    // Parse Bitcoin address
+    // Parse Nutcoin address
     CScript scriptPubKey;
     scriptPubKey.SetDestination(address);
 
