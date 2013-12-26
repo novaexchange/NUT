@@ -31,7 +31,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x51d8bbe1ba0f1792bffd8b06e2a3d41746e5b82ce56541873f63b2eb2556f703");
+uint256 hashGenesisBlock("0x29e24fdf6033620b8ed4356f5c323497d3b6025522801563872705ce7a53a8a4");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 32);
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2749,7 +2749,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0x51d8bbe1ba0f1792bffd8b06e2a3d41746e5b82ce56541873f63b2eb2556f703");
+        hashGenesisBlock = uint256("0x29e24fdf6033620b8ed4356f5c323497d3b6025522801563872705ce7a53a8a4");
     }
  
     //
@@ -2783,13 +2783,13 @@ bool InitBlockIndex() {
         ...
         ...
 
-        2013-12-26 09:58:15 block.nTime = 1388038297 
+        2013-12-26 09:58:15 block.nTime = 1388074261 
         2013-12-26 09:58:15 block.nNonce = 386203101 
         2013-12-26 09:58:15 block.GetHash = 51d8bbe1ba0f1792bffd8b06e2a3d41746e5b82ce56541873f63b2eb2556f703
         */
 
         // Genesis block
-        const char* pszTimestamp = "Snowden sees ghost of Christmas future: mass surveillance"; // December 25, 2013
+        const char* pszTimestamp = "Snowden says ghost of Christmas future is mass surveillance"; // December 25, 2013
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2801,14 +2801,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1388038297;
+        block.nTime    = 1388074261;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 386203101;
+        block.nNonce   = 0;
 
         if (fTestNet)
         {
-            block.nTime    = 1388038297;
-            block.nNonce   = 386203101;
+            block.nTime    = 1388074261;
+            block.nNonce   = 2085993;
         }
 
         //// debug print
@@ -2816,10 +2816,10 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0xd0e5bf35e77302eed679f9067967522e3b7f217d1175d67baeb9f26abfb97383"));
+        assert(block.hashMerkleRoot == uint256("0x34ecdd09926fea29a1e0978b19e8cc6c8f904fb2825bf724b4b63a90da9c7c45"));
 
         // If genesis block hash does not match, then generate new genesis hash.
-        if (true && block.GetHash() != hashGenesisBlock)
+        if (false && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
