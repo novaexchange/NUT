@@ -31,7 +31,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2");
+uint256 hashGenesisBlock("0x51d8bbe1ba0f1792bffd8b06e2a3d41746e5b82ce56541873f63b2eb2556f703");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 32);
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2749,9 +2749,9 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0xf5ae71e26c74beacc88382716aced69cddf3dffff24f384e1808905e0188f68f");
+        hashGenesisBlock = uint256("0x51d8bbe1ba0f1792bffd8b06e2a3d41746e5b82ce56541873f63b2eb2556f703");
     }
-
+ 
     //
     // Load block index from databases
     //
@@ -2775,11 +2775,18 @@ bool InitBlockIndex() {
     // Only add the genesis block if not reindexing (in which case we reuse the one already on disk)
     if (!fReindex) {
         // Genesis Block:
-        // CBlock(hash=12a765e31ffd4059bada, PoW=0000050c34a64b415b6b, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=97ddfbbae6, nTime=1317972665, nBits=1e0ffff0, nNonce=2084524493, vtx=1)
-        //   CTransaction(hash=97ddfbbae6, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        //     CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104404e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536)
-        //     CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
-        //   vMerkleTree: 97ddfbbae6
+
+        /*
+        2013-12-26 09:48:01 Merkle Hash : d0e5bf35e77302eed679f9067967522e3b7f217d1175d67baeb9f26abfb97383
+        2013-12-26 09:48:01 Searching for Genesis Block...
+
+        ...
+        ...
+
+        2013-12-26 09:58:15 block.nTime = 1388038297 
+        2013-12-26 09:58:15 block.nNonce = 386203101 
+        2013-12-26 09:58:15 block.GetHash = 51d8bbe1ba0f1792bffd8b06e2a3d41746e5b82ce56541873f63b2eb2556f703
+        */
 
         // Genesis block
         const char* pszTimestamp = "Snowden sees ghost of Christmas future: mass surveillance"; // December 25, 2013
@@ -2796,12 +2803,12 @@ bool InitBlockIndex() {
         block.nVersion = 1;
         block.nTime    = 1388038297;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 2084524493;
+        block.nNonce   = 386203101;
 
         if (fTestNet)
         {
             block.nTime    = 1388038297;
-            block.nNonce   = 385270584;
+            block.nNonce   = 386203101;
         }
 
         //// debug print
