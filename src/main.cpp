@@ -1063,16 +1063,32 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 50 * COIN;
+    int64 nSubsidy = 50000 * COIN; // 50000 coins reward per block
 
-    // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 840000); // Nutcoin: 840k blocks in ~4 years
+    /*
+    2014 : +262 800 000 000 (50000)
+         : +131 400 000 000 (25000)
+    2015 :  +65 700 000 000 (12500)
+         :  +32 850 000 000 (6250)
+    2016 :  +16 425 000 000 (3125)
+         :   +8 212 500 000 (...)
+    2017 :   +4 106 250 000
+         :   +2 053 125 000
+    2018 :   +1 026 562 500
+         :     +513 281 250
+    2019 :     +256 640 625
+         :     +128 320 312
+    2020 :             (...)
+    */
+
+    // Subsidy is cut in half approximately every 180 days
+    nSubsidy >>= (nHeight / 2600000); // Nutcoin: 2 600 000 blocks = ~6 months (14400 blocks per day)
 
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 3.5 * 24 * 60 * 60; // Nutcoin: 3.5 days
-static const int64 nTargetSpacing = 2.5 * 60; // Nutcoin: 2.5 minutes
+static const int64 nTargetTimespan = 2 * 24 * 60 * 60; // Nutcoin: 2 days (diff reajusted every 28800 blocks)
+static const int64 nTargetSpacing = 0.1 * 60; // Nutcoin: 6 seconds per block (600 blocks per hour, 14400 blocks per day)
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
