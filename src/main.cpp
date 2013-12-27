@@ -2801,7 +2801,7 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1388074261;
+        block.nTime    = 1388146082;
         block.nBits    = 0x1e0ffff0;
         block.nNonce   = 0;
 
@@ -2819,7 +2819,7 @@ bool InitBlockIndex() {
         assert(block.hashMerkleRoot == uint256("0x34ecdd09926fea29a1e0978b19e8cc6c8f904fb2825bf724b4b63a90da9c7c45"));
 
         // If genesis block hash does not match, then generate new genesis hash.
-        if (false && block.GetHash() != hashGenesisBlock)
+        if (true && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
