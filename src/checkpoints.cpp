@@ -39,7 +39,7 @@ namespace Checkpoints
         ;
     static const CCheckpointData data = {
         &mapCheckpoints,
-        1388074261, // * UNIX timestamp of last checkpoint block
+        1388146082, // * UNIX timestamp of last checkpoint block
         0,    // * total number of transactions between genesis and last checkpoint
                     //   (the tx=... number in the SetBestChain debug.log lines)
         8000.0     // * estimated number of transactions per day after checkpoint
@@ -65,7 +65,6 @@ namespace Checkpoints
 
     bool CheckBlock(int nHeight, const uint256& hash)
     {
-        return true; // remember to remove this;
         if (fTestNet) return true; // Testnet has no checkpoints
         if (!GetBoolArg("-checkpoints", true))
             return true;
@@ -110,7 +109,6 @@ namespace Checkpoints
 
     int GetTotalBlocksEstimate()
     {
-        return 0; // remember to remove this
         if (fTestNet) return 0; // Testnet has no checkpoints
         if (!GetBoolArg("-checkpoints", true))
             return 0;
@@ -122,7 +120,6 @@ namespace Checkpoints
 
     CBlockIndex* GetLastCheckpoint(const std::map<uint256, CBlockIndex*>& mapBlockIndex)
     {
-        return NULL; // remember to remove this
         if (fTestNet) return NULL; // Testnet has no checkpoints
        
         if (!GetBoolArg("-checkpoints", true))

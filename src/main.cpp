@@ -2778,14 +2778,20 @@ bool InitBlockIndex() {
 
         /*
         2013-12-26 09:48:01 Merkle Hash : d0e5bf35e77302eed679f9067967522e3b7f217d1175d67baeb9f26abfb97383
-        2013-12-26 09:48:01 Searching for Genesis Block...
+
+        ...
+
+        2013-12-27 12:22:25 ee33051af252ec68e611a00108f97c4ec76b8f298a6c188679911010ea300451
+        2013-12-27 12:22:25 0000000000000000000000000000000000000000000000000000000000000000
+        2013-12-27 12:22:25 34ecdd09926fea29a1e0978b19e8cc6c8f904fb2825bf724b4b63a90da9c7c45
+        2013-12-27 12:22:25 Searching for genesis block...
 
         ...
         ...
 
-        2013-12-26 09:58:15 block.nTime = 1388074261 
-        2013-12-26 09:58:15 block.nNonce = 386203101 
-        2013-12-26 09:58:15 block.GetHash = 51d8bbe1ba0f1792bffd8b06e2a3d41746e5b82ce56541873f63b2eb2556f703
+        2013-12-27 12:42:39 block.nTime = 1388146082 
+        2013-12-27 12:42:39 block.nNonce = 1819582 
+        2013-12-27 12:42:39 block.GetHash = ccdfd64bc8b85762af68ab00d18d46c7266d8547b2e7458dbfd7de10598975a8
         */
 
         // Genesis block
