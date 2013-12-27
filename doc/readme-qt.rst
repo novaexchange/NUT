@@ -68,7 +68,7 @@ Mac OS X
 	brew update
 	brew install boost miniupnpc openssl berkeley-db4
 
-- If using HomeBrew,  edit `nutcoin-qt.pro` to account for library location differences. There's a diff in `contrib/homebrew/bitcoin-qt-pro.patch` that shows what you need to change, or you can just patch by doing
+- If using HomeBrew,  edit `nutcoin-qt.pro` to account for library location differences. There's a diff in `contrib/homebrew/nutcoin-qt-pro.patch` that shows what you need to change, or you can just patch by doing
 
         patch -p1 < contrib/homebrew/bitcoin.qt.pro.patch
 
