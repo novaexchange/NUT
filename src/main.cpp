@@ -1086,7 +1086,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
          : +         98 876
     2023 : +         49 438
          : +         24 719
-    2014 : +         12 359
+    2024 : +         12 359
          : +          6 179
     (...)
     */
