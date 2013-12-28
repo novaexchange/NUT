@@ -15,12 +15,12 @@ import random
 from binascii import b2a_hex
 
 # key types
-PUBKEY_ADDRESS = 48
+PUBKEY_ADDRESS = 53 # Nutcoin addresses start with N
 SCRIPT_ADDRESS = 5
 PUBKEY_ADDRESS_TEST = 111
 SCRIPT_ADDRESS_TEST = 196
-PRIVKEY = 176
-PRIVKEY_TEST = 239
+PRIVKEY = 181 # must be PUBKEY_ADDRESS + 128 (53 + 128 = 181)
+PRIVKEY_TEST = 239 # must be PUBKEY_ADDRESS_TEST + 128 (111 + 128 = 239)
 
 metadata_keys = ['isPrivkey', 'isTestnet', 'addrType', 'isCompressed']
 # templates for valid sequences
