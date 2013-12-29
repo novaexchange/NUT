@@ -190,7 +190,7 @@ bool AppInit(int argc, char* argv[])
 
         if (mapArgs.count("-?") || mapArgs.count("--help"))
         {
-            // First part of help message is specific to bitcoind / RPC client
+            // First part of help message is specific to nutcoind / RPC client
             std::string strUsage = _("Nutcoin version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
                   "  nutcoind [options]                     " + "\n" +
@@ -268,7 +268,7 @@ int main(int argc, char* argv[])
 {
     bool fRet = false;
 
-    // Connect bitcoind signal handlers
+    // Connect nutcoind signal handlers
     noui_connect();
 
     fRet = AppInit(argc, argv);

@@ -22,7 +22,7 @@ set up to add test/*.cpp to test_nutcoin automatically).
 Compiling/running Nutcoin-Qt unit tests
 ---------------------------------------
 
-Bitcoin-Qt unit tests are in the src/qt/test/ directory; they
+Nutcoin-Qt unit tests are in the src/qt/test/ directory; they
 use the Qt unit-testing framework.
 
 To compile and run the tests:

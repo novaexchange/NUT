@@ -288,7 +288,7 @@ int main(int argc, char *argv[])
                 guiref = 0;
                 delete walletModel;
             }
-            // Shutdown the core and its threads, but don't exit Bitcoin-Qt here
+            // Shutdown the core and its threads, but don't exit Nutcoin-Qt here
             threadGroup.interrupt_all();
             threadGroup.join_all();
             Shutdown();

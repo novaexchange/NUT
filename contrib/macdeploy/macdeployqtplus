@@ -728,7 +728,7 @@ if config.dmg is not None:
         if fancy.get("applications_symlink", False):
             os.symlink("/Applications", os.path.join(disk_root, "Applications"))
         
-        # The Python appscript package broke with OSX 10.8 and isn't being fixed.
+        # The Python appscript package broke with OSX 10.8 (ten.eight) and isn't being fixed.
         # So we now build up an AppleScript string and use the osascript command
         # to make the .dmg file pretty:
         appscript = Template( """

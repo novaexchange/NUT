@@ -81,7 +81,7 @@ Optional:
 
 Notes
 -----
-The release is built with GCC and then "strip bitcoind" to strip the debug
+The release is built with GCC and then "strip nutcoind" to strip the debug
 symbols, which reduces the executable size by about 90%.
 
 

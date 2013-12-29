@@ -29,7 +29,7 @@ Notes
 See `doc/readme-qt.rst` for instructions on building Nutcoin-Qt, the
 graphical user interface.
 
-Tested on OS X 10.5 through 10.8 on Intel processors only. PPC is not
+Tested on OS X 10.6 through 10.8 on Intel processors only. PPC is not
 supported because it is big-endian.
 
 All of the commands should be executed in a Terminal application. The
@@ -137,17 +137,17 @@ Creating a release build
 A nutcoind binary is not included in the Nutcoin-Qt.app bundle. You can ignore
 this section if you are building `nutcoind` for your own use.
 
-If you are building `litecond` for others, your build machine should be set up
+If you are building `nutcoind` for others, your build machine should be set up
 as follows for maximum compatibility:
 
 All dependencies should be compiled with these flags:
 
-    -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
+    -mmacosx-version-min=10.6 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk
 
 For MacPorts, that means editing your macports.conf and setting
 `macosx_deployment_target` and `build_arch`:
 
-    macosx_deployment_target=10.5
+    macosx_deployment_target=10.6
     build_arch=i386
 
 ... and then uninstalling and re-installing, or simply rebuilding, all ports.
@@ -161,7 +161,20 @@ compiled on an OS X 10.6 32-bit machine to workaround that problem.
 
 Once dependencies are compiled, creating `Nutcoin-Qt.app` is easy:
 
-    make -f Makefile.osx RELEASE=1
+    make -f makefile.osx clean
+    make -f makefile.osx RELEASE=1
+
+Creating `Nutcoin-Qt.app` is easy as well:
+
+    qmake RELEASE=1 "USE_UPNP=-" nutcoin-qt.pro
+    make
+    export QTDIR=/opt/local/share/qt4  # needed to find translations/qt_*.qm files
+    T=$(contrib/qt_translations.py $QTDIR/translations src/qt/locale)
+    python2.7 share/qt/clean_mac_info_plist.py
+    python2.7 contrib/macdeploy/macdeployqtplus Nutcoin-Qt.app -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
+
+ Build output expected: Nutcoin-Qt.dmg
+
 
 Running
 -------

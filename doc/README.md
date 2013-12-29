@@ -30,9 +30,6 @@ Unpack the files into a directory and run:
 - bin/64/nutcoin-qt (GUI, 64-bit)
 - bin/64/nutcoind (headless, 64-bit)
 
-See the documentation at the [Nutcoin Wiki](http://nutcoin.info)
-for help and more information.
-
 
 Other Pages
 ---------------------
