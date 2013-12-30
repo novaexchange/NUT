@@ -1140,7 +1140,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
         // Special difficulty rule for testnet:
         if (fTestNet)
         {
-            // If the new block's timestamp is more than 2* 10 minutes
+            // If the new block's timestamp is more than 2 * 6 seconds
             // then allow mining of a min-difficulty block.
             if (pblock->nTime > pindexLast->nTime + nTargetSpacing*2)
                 return nProofOfWorkLimit;
@@ -1163,7 +1163,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
     if ((pindexLast->nHeight+1) != nInterval)
         blockstogoback = nInterval;
 
-    // Go back by what we want to be 14 days worth of blocks
+    // Go back by what we want to be 2 days worth of blocks
     const CBlockIndex* pindexFirst = pindexLast;
     for (int i = 0; pindexFirst && i < blockstogoback; i++)
         pindexFirst = pindexFirst->pprev;
