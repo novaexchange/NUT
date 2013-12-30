@@ -18,8 +18,8 @@ Nutcoin (NTC) is a fast version of Bitcoin and Litecoin. It uses scrypt as a pro
  - difficulty retarget every 28 800 blocks (~48 hours)
  - supply: 92 000 000 000 (92B) coins
 
-What the innovation?
---------------------
+What is the innovation?
+-----------------------
 
  - Anti-scarcity: 92 billions on coins will be delivered in the next 10/15 years
  - Designed for easy CPU mining: NTC will ever be the fastest coin to mine
