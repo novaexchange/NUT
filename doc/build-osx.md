@@ -170,8 +170,8 @@ Creating `Nutcoin-Qt.app` is easy as well:
     make
     export QTDIR=/opt/local/share/qt4  # needed to find translations/qt_*.qm files
     T=$(contrib/qt_translations.py $QTDIR/translations src/qt/locale)
-    python2.7 share/qt/clean_mac_info_plist.py
-    python2.7 contrib/macdeploy/macdeployqtplus Nutcoin-Qt.app -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
+    python share/qt/clean_mac_info_plist.py
+    python contrib/macdeploy/macdeployqtplus Nutcoin-Qt.app -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
 
  Build output expected: Nutcoin-Qt.dmg
 
