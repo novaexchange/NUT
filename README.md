@@ -12,10 +12,10 @@ What is Nutcoin?
 ----------------
 
 Nutcoin (NUT) is a fast version of Bitcoin and Litecoin. It uses scrypt as a proof-of-work algorithm, massive supply for everyone, and a simple stabilization mechanism to limit speculation effects.
- - 6 second block targets
+ - 10 second block targets
  - 5000 coins per block
- - subsidy halves every 2 600 000 blocks (~6 months)
- - difficulty retarget every 28 800 blocks (~48 hours)
+ - subsidy halves every 3 110 400 blocks (~6 months)
+ - difficulty retarget every 17 280 blocks (~48 hours)
  - supply: 92 000 000 000 (92B) coins
 
 What is the innovation?
@@ -59,28 +59,28 @@ Bitcoin's scarcity and its $10 billions market is negligible in comparison with 
 Nutcoin Massive Planet Supply Plan + APDTC
 ------------------------------------------
 
-    2014 : + 12 960 000 000 more coins   --> 1 NUT = ~ $0.0001 USD recommended value
-         : +  6 480 000 000 more coins
-    2015 : +  3 240 000 000 more coins       Transaction Limit: ~ 50 000 NUT
-         : +  1 620 000 000 more coins
-    2016 : +    810 000 000 more coins       Transaction Limit: ~ 100 000 NUT
-         : +    405 000 000 more coins
-    2017 : +    202 500 000 more coins       Transaction Limit: ~ 200 000 NUT
-         : +    101 250 000 more coins
-    2018 : +     50 625 000 more coins   --> 1 NUT = ~ $1 USD recommended value
-         : +     25 312 500 more coins
-    2019 : +     12 656 250 more coins       Transaction Limit: ~ 800 000 NUT
-         : +      6 328 125 more coins
-    2020 : +      3 164 062 more coins       Transaction Limit: ~ 1 600 000 NUT
-         : +      1 582 031 more coins
-    2021 : +        791 015 more coins       Transaction Limit: ~ 3 200 000 NUT
-         : +        395 507 more coins
-    2022 : +        197 753 more coins   --> 1 NUT = ~ $10 USD recommended value
-         : +         98 876 more coins
-    2023 : +         49 438 more coins       Transaction Limit: ~ 12 800 000 NUT
-         : +         24 719 more coins
-    2024 : +         12 359 more coins   --> 1 NUT = buy something that worth $15 today
-         : +          6 179 more coins
+    2014 : +  7 776 000 000 more coins   --> 1 NUT = ~ $0.0001 USD recommended value
+         : +  3 888 000 000 more coins
+    2015 : +  1 944 000 000 more coins       Transaction Limit: ~ 50 000 NUT
+         : +    972 000 000 more coins
+    2016 : +    486 000 000 more coins       Transaction Limit: ~ 100 000 NUT
+         : +    243 000 000 more coins
+    2017 : +    121 500 000 more coins       Transaction Limit: ~ 200 000 NUT
+         : +     60 750 000 more coins
+    2018 : +     30 375 000 more coins   --> 1 NUT = ~ $1 USD recommended value
+         : +     15 187 500 more coins
+    2019 : +      7 593 750 more coins       Transaction Limit: ~ 800 000 NUT
+         : +      3 796 875 more coins
+    2020 : +      1 898 437 more coins       Transaction Limit: ~ 1 600 000 NUT
+         : +        949 218 more coins
+    2021 : +        474 609 more coins       Transaction Limit: ~ 3 200 000 NUT
+         : +        237 304 more coins
+    2022 : +        118 652 more coins   --> 1 NUT = ~ $10 USD recommended value
+         : +         59 326 more coins
+    2023 : +         29 663 more coins       Transaction Limit: ~ 12 800 000 NUT
+         : +         14 831 more coins
+    2024 : +          7 415 more coins   --> 1 NUT = buy something that worth $15 today
+         : +          3 707 more coins
     (...)
 
 That's it: even if you have the chance to mine 72 millions of NUT the first weeks, you will not be able to make big transactions or withdraw more than 50 000 NUT.

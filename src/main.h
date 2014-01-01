@@ -623,7 +623,7 @@ public:
     {
         // Large (in bytes) low-priority (new, small-coin) transactions
         // need a fee.
-        return dPriority > COIN * 14400 / 250; // 14400 blocks found per day
+        return dPriority > COIN * 8640 / 250; // 8640 blocks found per day
     }
 
 // Apply the effects of this transaction on the UTXO set represented by view

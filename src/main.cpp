@@ -1066,39 +1066,39 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     int64 nSubsidy = 5000 * COIN; // 5000 coins reward per block
 
     /*
-    2014 : + 12 960 000 000
-         : +  6 480 000 000
-    2015 : +  3 240 000 000
-         : +  1 620 000 000
-    2016 : +    810 000 000
-         : +    405 000 000
-    2017 : +    202 500 000
-         : +    101 250 000
-    2018 : +     50 625 000
-         : +     25 312 500
-    2019 : +     12 656 250
-         : +      6 328 125
-    2020 : +      3 164 062
-         : +      1 582 031
-    2021 : +        791 015
-         : +        395 507
-    2022 : +        197 753
-         : +         98 876
-    2023 : +         49 438
-         : +         24 719
-    2024 : +         12 359
-         : +          6 179
+    2014 : +  7 776 000 000
+         : +  3 888 000 000
+    2015 : +  1 944 000 000
+         : +    972 000 000
+    2016 : +    486 000 000
+         : +    243 000 000
+    2017 : +    121 500 000
+         : +     60 750 000
+    2018 : +     30 375 000
+         : +     15 187 500
+    2019 : +      7 593 750
+         : +      3 796 875
+    2020 : +      1 898 437
+         : +        949 218
+    2021 : +        474 609
+         : +        237 304
+    2022 : +        118 652
+         : +         59 326
+    2023 : +         29 663
+         : +         14 831
+    2024 : +          7 415
+         : +          3 707
     (...)
     */
 
     // Subsidy is cut in half approximately every 180 days
-    nSubsidy >>= (nHeight / 2600000); // Nutcoin: 2 600 000 blocks = ~6 months (14400 blocks per day)
+    nSubsidy >>= (nHeight / 3110400); // Nutcoin: 3 110 400 blocks = ~6 months (8640 blocks per day)
 
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 2 * 24 * 60 * 60; // Nutcoin: 2 days (diff reajusted every 28800 blocks)
-static const int64 nTargetSpacing = 0.1 * 60; // Nutcoin: 6 seconds per block (600 blocks per hour, 14400 blocks per day)
+static const int64 nTargetTimespan = 2 * 24 * 60 * 60; // Nutcoin: 2 days (diff reajusted every 17280 blocks)
+static const int64 nTargetSpacing = 10; // Nutcoin: 10 seconds per block (6 blocks per minute, 360 blocks per hour, 8640 blocks per day)
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -1140,7 +1140,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
         // Special difficulty rule for testnet:
         if (fTestNet)
         {
-            // If the new block's timestamp is more than 2 * 6 seconds
+            // If the new block's timestamp is more than 2 * 10 seconds
             // then allow mining of a min-difficulty block.
             if (pblock->nTime > pindexLast->nTime + nTargetSpacing*2)
                 return nProofOfWorkLimit;
@@ -4415,7 +4415,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
             // Prioritize by fee once past the priority size or we run out of high-priority
             // transactions:
             if (!fSortedByFee &&
-                ((nBlockSize + nTxSize >= nBlockPrioritySize) || (dPriority < COIN * 14400 / 250)))
+                ((nBlockSize + nTxSize >= nBlockPrioritySize) || (dPriority < COIN * 8640 / 250)))
             {
                 fSortedByFee = true;
                 comparer = TxPriorityCompare(fSortedByFee);
