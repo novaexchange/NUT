@@ -70,13 +70,13 @@ Instructions: MacPorts
 
 Installing the dependencies using MacPorts is very straightforward.
 
-    sudo port install boost db48@+no_java openssl miniupnpc
+    sudo port install boost db48@+no_java qt4-mac openssl miniupnpc git
 
 ### Building `nutcoind`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone git@github.com:nutcoin-project/nutcoin.git nutcoin
+        git clone https://github.com/dmx374/nutcoin.git
         cd nutcoin
 
 2.  Build nutcoind:
@@ -111,7 +111,7 @@ Rerunning "openssl version" should now return the correct version.
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone git@github.com:nutcoin-project/nutcoin.git nutcoin
+        git clone https://github.com/dmx374/nutcoin.git
         cd nutcoin
 
 2.  Modify source in order to pick up the `openssl` library.
@@ -162,7 +162,7 @@ compiled on an OS X 10.6 32-bit machine to workaround that problem.
 Once dependencies are compiled, creating `Nutcoin-Qt.app` is easy:
 
     make -f makefile.osx clean
-    make -f makefile.osx RELEASE=1
+    make -f makefile.osx USE_UPNP=- RELEASE=1
 
 Creating `Nutcoin-Qt.app` is easy as well:
 
