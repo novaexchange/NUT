@@ -1063,7 +1063,7 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 5000 * COIN; // 5000 coins reward per block
+    int64 nSubsidy = 10000 * COIN; // 10000 coins reward per block
 
     /*
     2014 : +  7 776 000 000
@@ -1092,13 +1092,13 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     */
 
     // Subsidy is cut in half approximately every 180 days
-    nSubsidy >>= (nHeight / 3110400); // Nutcoin: 3 110 400 blocks = ~6 months (8640 blocks per day)
+    nSubsidy >>= (nHeight / 777600); // Nutcoin: 777 600 blocks = ~6 months (4320 blocks per day)
 
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 2 * 24 * 60 * 60; // Nutcoin: 2 days (diff reajusted every 17280 blocks)
-static const int64 nTargetSpacing = 10; // Nutcoin: 10 seconds per block (6 blocks per minute, 360 blocks per hour, 8640 blocks per day)
+static const int64 nTargetTimespan = 15 * 24 * 60 * 60; // Nutcoin: 15 days (diff reajusted every 64800 blocks)
+static const int64 nTargetSpacing = 20; // Nutcoin: 20 seconds per block (3 blocks per minute, 180 blocks per hour, 4320 blocks per day)
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -1899,7 +1899,7 @@ bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew)
     }
 
     // Update best block in wallet (so we can detect restored wallets)
-    if ((pindexNew->nHeight % 20160) == 0 || (!fIsInitialDownload && (pindexNew->nHeight % 144) == 0))
+    if ((pindexNew->nHeight % 648000) == 0 || (!fIsInitialDownload && (pindexNew->nHeight % 144) == 0))
     {
         const CBlockLocator locator(pindexNew);
         ::SetBestChain(locator);
@@ -4415,7 +4415,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
             // Prioritize by fee once past the priority size or we run out of high-priority
             // transactions:
             if (!fSortedByFee &&
-                ((nBlockSize + nTxSize >= nBlockPrioritySize) || (dPriority < COIN * 8640 / 250)))
+                ((nBlockSize + nTxSize >= nBlockPrioritySize) || (dPriority < COIN * 4320 / 250)))
             {
                 fSortedByFee = true;
                 comparer = TxPriorityCompare(fSortedByFee);

@@ -12,10 +12,10 @@ What is Nutcoin?
 ----------------
 
 Nutcoin (NUT) is a fast version of Bitcoin and Litecoin. It uses scrypt as a proof-of-work algorithm, massive supply for everyone, and a simple stabilization mechanism to limit speculation effects.
- - 10 second block targets
- - 5000 coins per block
- - subsidy halves every 3 110 400 blocks (~6 months)
- - difficulty retarget every 17 280 blocks (~48 hours)
+ - 20 second block targets
+ - 10000 coins per block
+ - subsidy halves every ~6 months
+ - difficulty retarget every 64 800 blocks (~15 days)
  - supply: 92 000 000 000 (92B) coins
 
 What is the innovation?
