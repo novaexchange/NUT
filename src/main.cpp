@@ -64,7 +64,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Nutcoin Signed Message:\n";
+const string strMessageMagic = "NutCoin Signed Message:\n";
 
 double dHashesPerSec = 0.0;
 int64 nHPSTimerStart = 0;
@@ -1063,7 +1063,7 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 10000 * COIN; // 10000 coins reward per block
+    int64 nSubsidy = 20000 * COIN; // 20000 coins reward per block
 
     /*
     2014 : +  7 776 000 000
@@ -1092,13 +1092,13 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     */
 
     // Subsidy is cut in half approximately every 180 days
-    nSubsidy >>= (nHeight / 777600); // Nutcoin: 777 600 blocks = ~6 months (4320 blocks per day)
+    nSubsidy >>= (nHeight / 388800); // Nutcoin: 388 800 blocks = ~6 months (2160 blocks per day)
 
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 15 * 24 * 60 * 60; // Nutcoin: 15 days (diff reajusted every 64800 blocks)
-static const int64 nTargetSpacing = 20; // Nutcoin: 20 seconds per block (3 blocks per minute, 180 blocks per hour, 4320 blocks per day)
+static const int64 nTargetTimespan = 2 * 60 * 60; // Nutcoin: 2 hours (diff reajusted every 180 blocks)
+static const int64 nTargetSpacing = 40; // Nutcoin: 40 seconds per block (1.5 blocks per minute, 90 blocks per hour, 2160 blocks per day)
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -1899,7 +1899,7 @@ bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew)
     }
 
     // Update best block in wallet (so we can detect restored wallets)
-    if ((pindexNew->nHeight % 648000) == 0 || (!fIsInitialDownload && (pindexNew->nHeight % 144) == 0))
+    if ((pindexNew->nHeight % 1800) == 0 || (!fIsInitialDownload && (pindexNew->nHeight % 144) == 0))
     {
         const CBlockLocator locator(pindexNew);
         ::SetBestChain(locator);
@@ -2749,7 +2749,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0x29e24fdf6033620b8ed4356f5c323497d3b6025522801563872705ce7a53a8a4");
+        hashGenesisBlock = uint256("0xad0c482a902bfe5f279f1d7ed2b14cece619a75e5cb800550ac8f1d262316f3e");
     }
  
     //
@@ -2774,58 +2774,38 @@ bool InitBlockIndex() {
 
     // Only add the genesis block if not reindexing (in which case we reuse the one already on disk)
     if (!fReindex) {
-        // Genesis Block:
-
-        /*
-        2013-12-26 09:48:01 Merkle Hash : d0e5bf35e77302eed679f9067967522e3b7f217d1175d67baeb9f26abfb97383
-
-        ...
-
-        2013-12-27 12:22:25 ee33051af252ec68e611a00108f97c4ec76b8f298a6c188679911010ea300451
-        2013-12-27 12:22:25 0000000000000000000000000000000000000000000000000000000000000000
-        2013-12-27 12:22:25 34ecdd09926fea29a1e0978b19e8cc6c8f904fb2825bf724b4b63a90da9c7c45
-        2013-12-27 12:22:25 Searching for genesis block...
-
-        ...
-        ...
-
-        2013-12-27 12:42:39 block.nTime = 1388146082 
-        2013-12-27 12:42:39 block.nNonce = 1819582 
-        2013-12-27 12:42:39 block.GetHash = ccdfd64bc8b85762af68ab00d18d46c7266d8547b2e7458dbfd7de10598975a8
-        */
-
         // Genesis block
-        const char* pszTimestamp = "Snowden says ghost of Christmas future is mass surveillance"; // December 25, 2013
+        const char* pszTimestamp = "US appeals court ruling invalidating NSA surveillance"; // January 4, 2014
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 5000 * COIN;
+        txNew.vout[0].nValue = 20000 * COIN;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1388146082;
+        block.nTime    = 1388792999;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 1819582;
+        block.nNonce   = 0;
 
         if (fTestNet)
         {
-            block.nTime    = 1388074261;
-            block.nNonce   = 2085993;
+            block.nTime    = 1388792999;
+            block.nNonce   = 1082770;
         }
 
         //// debug print
         uint256 hash = block.GetHash();
-        printf("%s\n", hash.ToString().c_str());
-        printf("%s\n", hashGenesisBlock.ToString().c_str());
-        printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x34ecdd09926fea29a1e0978b19e8cc6c8f904fb2825bf724b4b63a90da9c7c45"));
+        printf("hash %s\n", hash.ToString().c_str());
+        printf("genesis %s\n", hashGenesisBlock.ToString().c_str());
+        printf("merkle %s\n", block.hashMerkleRoot.ToString().c_str());
+        assert(block.hashMerkleRoot == uint256("0x84a0819e88c56f14e7f9e2be71c9c9153fef08ecdeb6d8d2787a859f33e6704f"));
 
         // If genesis block hash does not match, then generate new genesis hash.
-        if (false && block.GetHash() != hashGenesisBlock)
+        if (true && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
@@ -4415,7 +4395,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
             // Prioritize by fee once past the priority size or we run out of high-priority
             // transactions:
             if (!fSortedByFee &&
-                ((nBlockSize + nTxSize >= nBlockPrioritySize) || (dPriority < COIN * 4320 / 250)))
+                ((nBlockSize + nTxSize >= nBlockPrioritySize) || (dPriority < COIN * 2160 / 250)))
             {
                 fSortedByFee = true;
                 comparer = TxPriorityCompare(fSortedByFee);
