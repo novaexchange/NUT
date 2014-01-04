@@ -14,7 +14,7 @@ BOOST_AUTO_TEST_SUITE(Checkpoints_tests)
 
 BOOST_AUTO_TEST_CASE(sanity)
 {
-    uint256 p0 = uint256("0xccdfd64bc8b85762af68ab00d18d46c7266d8547b2e7458dbfd7de10598975a8");
+    uint256 p0 = uint256("0xe3d4af8e968b4613bf036de1b155c690050624c560592722465d6ebbc0fec37c");
     BOOST_CHECK(Checkpoints::CheckBlock(0, p0));
 
     // ... any hash not at a checkpoint should succeed:

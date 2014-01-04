@@ -202,7 +202,7 @@ BOOST_AUTO_TEST_CASE(sha256transform_equality)
 
     BOOST_TEST_MESSAGE(hash.GetHex());
 
-    uint256 hash_reference("0xccdfd64bc8b85762af68ab00d18d46c7266d8547b2e7458dbfd7de10598975a8");
+    uint256 hash_reference("0xe3d4af8e968b4613bf036de1b155c690050624c560592722465d6ebbc0fec37c");
 
     BOOST_CHECK(hash == hash_reference);
 }
