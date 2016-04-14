@@ -1,7 +1,7 @@
 Nutcoin Decentralized Cryptocurrency 
 ====================================
 
-http://www.nutcoin.com/
+http://nutcoin.thehouseofdiem.info/
 
 - Copyright (c) 2009-2013 Bitcoin Developers
 - Copyright (c) 2011-2013 Litecoin Developers
@@ -85,7 +85,7 @@ Nutcoin Massive Planet Supply Plan + APDTC
 
 That's it: even if you have the chance to mine 72 millions of NUT the first weeks, you will not be able to make big transactions or withdraw more than 50 000 NUT.
 This simple mechanism is the real innovative approach of NutCoin, and it will avoid large and massive buy/sell orders to manipulate the value of the currency.
-For now, APDTC is still experimental and will be set manually by the NutCoin developpers.
+For now, APDTC is still experimental and will be set manually by the NutCoin developers.
 
 How to get NUT?
 ---------------
@@ -102,4 +102,4 @@ information or see http://opensource.org/licenses/MIT.
 
 
 For more information, as well as an immediately useable binary version of
-the Nutcoin client software, see http://www.nutcoin.com/
+the Nutcoin client software, see http://nutcoin.thehouseofdiem.info/
